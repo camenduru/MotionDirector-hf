@@ -5,5 +5,6 @@ sdk: gradio
 sdk_version: 3.26.0
 emoji: 🔥
 pinned: false
-colorFrom: red
+colorFrom: purple
+colorTo: red
 ---
