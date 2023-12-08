@@ -94,7 +94,7 @@ with gr.Blocks() as demo:
         ],
         inputs=[model_select, text_pormpt, random_seed],
         outputs=generated_video,
-        cache_examples=true_for_shared_ui
+        # cache_examples=true_for_shared_ui
     )
 
 demo.queue(max_size=15)
