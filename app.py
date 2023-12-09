@@ -53,15 +53,24 @@ with gr.Blocks() as demo:
 
     with gr.Row():
         model_select = gr.Dropdown(
-            ["1-1: [Cinematic Shots] -- Dolly Zoom (Hitchcockian Zoom)",
+            ["1-1: [Cinematic Shots] -- Zoom Out",
              "1-2: [Cinematic Shots] -- Zoom In",
              "1-3: [Cinematic Shots] -- Zoom Out",
+             "1-3: [Cinematic Shots] -- Dolly Zoom (Hitchcockian Zoom) 1",
+             "1-4: [Cinematic Shots] -- Dolly Zoom (Hitchcockian Zoom) 2",
+             "1-5: [Cinematic Shots] -- Follow",
+             "1-6: [Cinematic Shots] -- Reverse Follow",
+             "1-7: [Cinematic Shots] -- Chest Transition",
+             "1-8: [Cinematic Shots] -- Mini Jib Reveal",
+             "1-9: [Cinematic Shots] -- Orbit",
+             "1-10: [Cinematic Shots] -- Pull Back",
              "2-1: [Object Trajectory] -- Right to Left",
              "2-2: [Object Trajectory] -- Left to Right",
              "3-1: [Sports Concepts] -- Riding Bicycle",
              "3-2: [Sports Concepts] -- Riding Horse",
              "3-3: [Sports Concepts] -- Lifting Weights",
-             "3-4: [Sports Concepts] -- Playing Golf"
+             "3-4: [Sports Concepts] -- Playing Golf",
+             "3-5: [Sports Concepts] -- Skateboarding",
              ],
             label="MotionDirector",
             info="Which MotionDirector would you like to use!"
