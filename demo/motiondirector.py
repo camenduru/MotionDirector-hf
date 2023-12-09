@@ -96,6 +96,7 @@ def prepare_input_latents(
     else:
         random_seed = random.randint(100, 10000000)
         torch.manual_seed(random_seed)
+        print(f"random_seed: {random_seed}")
     if '1-' in model_select:
         noise_prior = 0.3
     elif '2-' in model_select:
@@ -122,7 +123,7 @@ def prepare_input_latents(
         latents = torch.randn(shape, dtype=torch.half)
         latents_base = latents
 
-    return latents, latents_base
+    return latents, latents_base, random_seed
 
 
 class MotionDirector():
@@ -157,7 +158,7 @@ class MotionDirector():
         with torch.autocast(device, dtype=torch.half):
             # prepare input latents
             with torch.no_grad():
-                init_latents,init_latents_base = prepare_input_latents(
+                init_latents, init_latents_base, random_seed = prepare_input_latents(
                     pipe=self.pipe,
                     batch_size=1,
                     num_frames=16,

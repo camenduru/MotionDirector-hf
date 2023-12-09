@@ -64,11 +64,11 @@ with gr.Blocks() as demo:
              "3-4: [Sports Concepts] -- Playing Golf",
              "3-5: [Sports Concepts] -- Skateboarding",
              ],
-            label="MotionDirector",
+            label="Select MotionDirector *",
             info="Which MotionDirector would you like to use!"
         )
 
-        text_pormpt = gr.Textbox(label="Text Prompt", value='', placeholder="Input your text prompt here!")
+        text_pormpt = gr.Textbox(label="Text Prompt *", value='', placeholder="Input your text prompt here!")
         neg_text_pormpt = gr.Textbox(label="Negative Text Prompt", value='', placeholder="default: None")
 
     submit = gr.Button("Generate")
@@ -80,18 +80,19 @@ with gr.Blocks() as demo:
         [generated_video, generated_video_baseline]
     )
 
+    gr.Markdown("Note: * denotes required field. Tips: More detailed text prompt is helpful for generating better results.")
     # Examples
     gr.Markdown("## Examples")
     gr.Examples(
         fn=motiondirector,
         examples=[
             ["1-1: [Cinematic Shots] -- Zoom Out", "A spaceman standing on the moon captured with a zoom out.",
-             8323920],
+             5894219],
             ["1-2: [Cinematic Shots] -- Zoom In", "A polar bear standing at the top of a snowy mountain captured with a zoom in.", 7938587],
             ["1-3: [Cinematic Shots] -- Dolly Zoom (Hitchcockian Zoom) 1", "A panda standing in front of an ancient Chinese temple captured with a dolly zoom.", 8238823],
             ["1-4: [Cinematic Shots] -- Dolly Zoom (Hitchcockian Zoom) 2", "A lion sitting on top of a cliff captured with a dolly zoom.", 1675932],
             ["1-5: [Cinematic Shots] -- Follow", "A fireman is walking through fire captured with a follow cinematic shot.", 2927089],
-            ["1-6: [Cinematic Shots] -- Reverse Follow", "A fireman is walking through fire captured with a reverse follow cinematic shot.", 9759630],
+            ["1-6: [Cinematic Shots] -- Reverse Follow", "A fireman is walking through fire captured with a reverse follow cinematic shot.", 271723],
             ["1-7: [Cinematic Shots] -- Chest Transition", "An ancient Roman soldier walks through the crowd on the street captured with a chest transition cinematic shot.", 3982271],
             ["1-8: [Cinematic Shots] -- Mini Jib Reveal",
              "A British Redcoat soldier is walking through the mountains captured with a mini jib reveal cinematic shot.",
