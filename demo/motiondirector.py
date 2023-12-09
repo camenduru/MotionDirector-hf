@@ -85,11 +85,25 @@ def prepare_input_latents(
     height: int,
     width: int,
     latents_path:str,
-    noise_prior: float
+    model_select: str,
+    random_seed: int,
 ):
     # initialize with random gaussian noise
     scale = pipe.vae_scale_factor
     shape = (batch_size, pipe.unet.config.in_channels, num_frames, height // scale, width // scale)
+    if random_seed > 1000:
+        torch.manual_seed(random_seed)
+    else:
+        random_seed = random.randint(100, 10000000)
+        torch.manual_seed(random_seed)
+    if '1-' in model_select:
+        noise_prior = 0.3
+    elif '2-' in model_select:
+        noise_prior = 0.5
+    elif '3-' in model_select:
+        noise_prior = 0.
+    else:
+        noise_prior = 0.
     if noise_prior > 0.:
         cached_latents = torch.load(latents_path)
         if 'inversion_noise' not in cached_latents:
@@ -139,20 +153,6 @@ class MotionDirector():
         latents_path = f"{latents_folder}/{random.choice(os.listdir(latents_folder))}"
         assert os.path.exists(lora_path)
 
-        if '1-' in model_select:
-            noise_prior = 0.3
-        elif '2-' in model_select:
-            noise_prior = 0.5
-        elif '3-' in model_select:
-            noise_prior = 0.
-        else:
-            noise_prior = 0.
-
-        if random_seed > 1000:
-            torch.manual_seed(random_seed)
-        else:
-            random_seed = random.randint(100, 10000000)
-            torch.manual_seed(random_seed)
         device = "cuda"
         with torch.autocast(device, dtype=torch.half):
             # prepare input latents
@@ -164,7 +164,8 @@ class MotionDirector():
                     height=384,
                     width=384,
                     latents_path=latents_path,
-                    noise_prior=noise_prior
+                    model_select=model_select,
+                    random_seed=random_seed
                 )
                 video_frames = self.pipe(
                     prompt=text_pormpt,
@@ -176,7 +177,6 @@ class MotionDirector():
                     guidance_scale=guidance_scale,
                     latents=init_latents
                 ).frames
-
 
                 out_file = f"{out_name}_{random_seed}.mp4"
                 os.makedirs(os.path.dirname(out_file), exist_ok=True)
