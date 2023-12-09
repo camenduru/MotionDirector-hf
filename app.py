@@ -29,12 +29,14 @@ with gr.Blocks() as demo:
         </a>
         <div>
             <h1 >MotionDirector: Motion Customization of Text-to-Video Diffusion Models</h1>
-            <h5 style="margin: 0;">More MotionDirectors are on the way. Stay tuned 🔥! Give us a star ✨ on Github for the latest update.</h5>
+            <h5 style="margin: 0;">More MotionDirectors are on the way. Stay tuned 🔥!</h5>
+             <h5 style="margin: 0;"> If you like our project, please give us a star ✨ on Github for the latest update.</h5>
             </br>
             <div style="display: flex; justify-content: center; align-items: center; text-align: center;>
-                <a href="https://arxiv.org/abs/2310.08465"><img src="https://img.shields.io/badge/arXiv-MotionDirector-b31b1b.svg"></a>&nbsp;&nbsp;
-                <a href='https://showlab.github.io/MotionDirector'><img src='https://img.shields.io/badge/Project_Page-MotionDirector-green'></a>&nbsp;&nbsp;
-                <a href='https://github.com/showlab/MotionDirector'><img src='https://img.shields.io/badge/Github-MotionDirector-blue'></a>&nbsp;&nbsp;
+                <a href="https://arxiv.org/abs/2310.08465"></a>
+                <a href="https://arxiv.org/abs/2310.08465"><img src="https://img.shields.io/badge/arXiv-2310.08465-b31b1b.svg"></a>&nbsp;&nbsp;
+                <a href="https://showlab.github.io/MotionDirector"><img src="https://img.shields.io/badge/Project_Page-MotionDirector-green"></a>&nbsp;&nbsp;
+                <a href="https://github.com/showlab/MotionDirector"><img src="https://img.shields.io/badge/Github-Code-blue"></a>&nbsp;&nbsp;
             </div>
         </div>
         </div>
@@ -82,19 +84,30 @@ with gr.Blocks() as demo:
     gr.Examples(
         fn=motiondirector,
         examples=[
-            ["1-1: [Cinematic Shots] -- Dolly Zoom (Hitchcockian Zoom)", "A lion sitting on top of a cliff captured with a dolly zoom.", 1675932],
-            ["1-2: [Cinematic Shots] -- Zoom In", "A firefighter standing in front of a burning forest captured with a zoom in.", 1429227],
-            ["1-3: [Cinematic Shots] -- Zoom Out", "A lion sitting on top of a cliff captured with a zoom out.", 1767994],
-            ["2-1: [Object Trajectory] -- Right to Left", "A tank is running on the moon.", 8551187],
+            ["1-1: [Cinematic Shots] -- Zoom Out", "A spaceman standing on the moon captured with a zoom out.",
+             8323920],
+            ["1-2: [Cinematic Shots] -- Zoom In", "A polar bear standing at the top of a snowy mountain captured with a zoom in.", 7938587],
+            ["1-3: [Cinematic Shots] -- Dolly Zoom (Hitchcockian Zoom) 1", "A panda standing in front of an ancient Chinese temple captured with a dolly zoom.", 8238823],
+            ["1-4: [Cinematic Shots] -- Dolly Zoom (Hitchcockian Zoom) 2", "A lion sitting on top of a cliff captured with a dolly zoom.", 1675932],
+            ["1-5: [Cinematic Shots] -- Follow", "A fireman is walking through fire captured with a follow cinematic shot.", 2927089],
+            ["1-6: [Cinematic Shots] -- Reverse Follow", "A fireman is walking through fire captured with a reverse follow cinematic shot.", 9759630],
+            ["1-7: [Cinematic Shots] -- Chest Transition", "An ancient Roman soldier walks through the crowd on the street captured with a chest transition cinematic shot.", 3982271],
+            ["1-8: [Cinematic Shots] -- Mini Jib Reveal",
+             "A British Redcoat soldier is walking through the mountains captured with a mini jib reveal cinematic shot.",
+             566917],
+            ["1-9: [Cinematic Shots] -- Orbit", "A spaceman on the moon captured with an orbit cinematic shot.", 5899496],
+            ["1-10: [Cinematic Shots] -- Pull Back", "A spaceman on the moon looking at a lunar rover captured with a pull back cinematic shot.",
+             5585865],
+            ["2-1: [Object Trajectory] -- Right to Left", "A tank is running on the moon.", 2047046],
             ["2-2: [Object Trajectory] -- Left to Right", "A tiger is running in the forest.", 3463673],
             ["3-1: [Sports Concepts] -- Riding Bicycle", "An astronaut is riding a bicycle past the pyramids Mars 4K high quailty highly detailed.", 4422954],
             ["3-2: [Sports Concepts] -- Riding Horse", "A man riding an elephant through the jungle.", 6230765],
             ["3-3: [Sports Concepts] -- Lifting Weights", "A panda is lifting weights in a garden.", 1699276],
-            ["3-4: [Sports Concepts] -- Playing Golf", "A man is playing golf in front of the White House.", 8870450],
+            ["3-4: [Sports Concepts] -- Playing Golf", "A monkey is playing golf on a field full of flowers.", 4156856],
+            ["3-5: [Sports Concepts] -- Skateboarding", "An astronaut is skateboarding on Mars.", 6615212],
         ],
         inputs=[model_select, text_pormpt, random_seed],
         outputs=generated_video,
-        # cache_examples=true_for_shared_ui
     )
 
 demo.queue(max_size=15)
