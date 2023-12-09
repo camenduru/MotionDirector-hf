@@ -139,12 +139,14 @@ class MotionDirector():
         latents_path = f"{latents_folder}/{random.choice(os.listdir(latents_folder))}"
         assert os.path.exists(lora_path)
 
-        if '3-' in model_select:
-            noise_prior = 0.
+        if '1-' in model_select:
+            noise_prior = 0.3
         elif '2-' in model_select:
             noise_prior = 0.5
+        elif '3-' in model_select:
+            noise_prior = 0.
         else:
-            noise_prior = 0.3
+            noise_prior = 0.
 
         if random_seed > 1000:
             torch.manual_seed(random_seed)
