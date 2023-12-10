@@ -55,7 +55,6 @@ with gr.Blocks() as demo:
         model_select = gr.Dropdown(
             ["1-1: [Cinematic Shots] -- Zoom Out",
              "1-2: [Cinematic Shots] -- Zoom In",
-             "1-3: [Cinematic Shots] -- Zoom Out",
              "1-3: [Cinematic Shots] -- Dolly Zoom (Hitchcockian Zoom) 1",
              "1-4: [Cinematic Shots] -- Dolly Zoom (Hitchcockian Zoom) 2",
              "1-5: [Cinematic Shots] -- Follow",
@@ -97,7 +96,7 @@ with gr.Blocks() as demo:
             ["1-1: [Cinematic Shots] -- Zoom Out", "A spaceman standing on the moon captured with a zoom out.",
              5894219],
             ["1-2: [Cinematic Shots] -- Zoom In", "A polar bear standing at the top of a snowy mountain captured with a zoom in.", 9036551],
-            ["1-3: [Cinematic Shots] -- Dolly Zoom (Hitchcockian Zoom) 1", "A panda standing in front of an ancient Chinese temple captured with a dolly zoom.", 8238823],
+            ["1-3: [Cinematic Shots] -- Dolly Zoom (Hitchcockian Zoom) 1", "A panda standing in front of an ancient Chinese temple captured with a dolly zoom.", 150518],
             ["1-4: [Cinematic Shots] -- Dolly Zoom (Hitchcockian Zoom) 2", "A lion sitting on top of a cliff captured with a dolly zoom.", 1675932],
             ["1-5: [Cinematic Shots] -- Follow", "A fireman is walking through fire captured with a follow cinematic shot.", 2927089],
             ["1-6: [Cinematic Shots] -- Reverse Follow", "A fireman is walking through fire captured with a reverse follow cinematic shot.", 271723],
